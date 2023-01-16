@@ -39,16 +39,19 @@ public class TesteController {
 
     private Condominio buildCond(){
         Condominio cond = new Condominio();
-        cond.setBairroCond("bairro");
-        cond.setCepCond("cep");
-        cond.setCnpjCond("cnpj");
+        cond.setBairroCond("Parque do Colégio");
+        cond.setCepCond("13209-201");
+        cond.setCnpjCond("77.777.777/7777-77");
         cond.setCidCond("cidade");
-        cond.setEmailCond("email");
-        cond.setCadCondNum(1);
-        cond.setEndCond("endereço");
-        cond.setNomeCond("nome");
-        cond.setInscrMunCond("inscrMun");
-        cond.setInscrEstCond("inscrEst");
+        cond.setEmailCond("Jundiaí");
+        cond.setCadCondNum(1371);
+        cond.setEndCond("Rua do Retiro");
+        cond.setNomeCond("Residencial Morada Dos Deuses");
+        cond.setNomeFant("Morada Dos Deuses");
+        cond.setInscrMunCond("7777777");
+        cond.setInscrEstCond("6666666666");
+        cond.setEmailCond("morada.deuses@gmail.com");
+        cond.setTelFixoCond("(11)4567-1234");
         return cond;
     }
 
@@ -67,9 +70,6 @@ public class TesteController {
         mor.setRgMor("123456789");
         mor.setTelCelMor("1199999999");
         mor.setDtNascMor(LocalDate.parse("15/09/1996", formatter));
-        Condominio cond = buildCond();
-        cond.setCodCond(1);
-        mor.setCondominio(cond);
         moradorRepository.save(mor);
         return "Saved";
     }
