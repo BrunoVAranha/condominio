@@ -37,7 +37,8 @@ public class TesteController {
     @Autowired
     MoradorRepository moradorRepository;
 
-    private Condominio buildCond(){
+    @PostMapping(path="/addCond")
+    public @ResponseBody String addNewCond () {
         Condominio cond = new Condominio();
         cond.setBairroCond("Parque do Colégio");
         cond.setCepCond("13209-201");
@@ -52,12 +53,7 @@ public class TesteController {
         cond.setInscrEstCond("6666666666");
         cond.setEmailCond("morada.deuses@gmail.com");
         cond.setTelFixoCond("(11)4567-1234");
-        return cond;
-    }
-
-    @PostMapping(path="/addCond")
-    public @ResponseBody String addNewCond () {
-        condominioRepository.save(buildCond());
+        condominioRepository.save(cond);
         return "Saved";
     }
     @PostMapping(path="/addMor")
