@@ -53,6 +53,7 @@ public class TesteController {
         cond.setInscrEstCond("6666666666");
         cond.setEmailCond("morada.deuses@gmail.com");
         cond.setTelFixoCond("(11)4567-1234");
+        cond.setUfCond("São Paulo");
         condominioRepository.save(cond);
         return "Saved";
     }
