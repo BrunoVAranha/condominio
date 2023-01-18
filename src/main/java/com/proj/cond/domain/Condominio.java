@@ -1,5 +1,7 @@
 package com.proj.cond.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -22,6 +24,7 @@ public class Condominio {
     private String inscrEstCond;
     private String inscrMunCond;
     @OneToMany
+    @JsonIgnore
     private List<Morador> moradores;
 
     public Integer getCodCond() {

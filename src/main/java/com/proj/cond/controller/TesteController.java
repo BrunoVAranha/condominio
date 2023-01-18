@@ -65,6 +65,8 @@ public class TesteController {
     }
     @PostMapping(path="/addMor")
     public @ResponseBody String addNewMor () {
+        Condominio condominio = new Condominio();
+        condominio.setCodCond(16);
         Morador mor = new Morador();
         mor.setAndarMor(1);
         mor.setBlocoMor(1);
@@ -73,6 +75,7 @@ public class TesteController {
         mor.setRgMor("123456789");
         mor.setTelCelMor("1199999999");
         mor.setDtNascMor(LocalDate.parse("15/09/1996", formatter));
+        mor.setCondominio(condominio);
         moradorRepository.save(mor);
         return "Saved";
     }
