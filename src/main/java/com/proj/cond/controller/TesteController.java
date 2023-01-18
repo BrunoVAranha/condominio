@@ -38,7 +38,7 @@ public class TesteController {
     MoradorRepository moradorRepository;
 
     @PostMapping(path="/addCond")
-    public @ResponseBody String addNewCond () {
+    public @ResponseBody String addCond () {
         Condominio cond = new Condominio();
         cond.setBairroCond("Parque do Colégio");
         cond.setCepCond("13209-201");
@@ -55,6 +55,12 @@ public class TesteController {
         cond.setTelFixoCond("(11)4567-1234");
         cond.setUfCond("São Paulo");
         condominioRepository.save(cond);
+        return "Saved";
+    }
+
+    @PostMapping(path="/addNewCond")
+    public @ResponseBody String addNewCond (@RequestBody Condominio condominio) {
+        condominioRepository.save(condominio);
         return "Saved";
     }
     @PostMapping(path="/addMor")
@@ -79,6 +85,7 @@ public class TesteController {
     public ResponseEntity<List<Condominio>> getCondominios(){
         return new ResponseEntity<>(condominioService.getCondominios(), HttpStatus.ACCEPTED);
     }
+
     @GetMapping(path="/getCondominio")
     public ResponseEntity<Condominio> getCondominio(@RequestParam Integer codCond){
         return new ResponseEntity<>(condominioService.getCondominio(codCond), HttpStatus.ACCEPTED);
